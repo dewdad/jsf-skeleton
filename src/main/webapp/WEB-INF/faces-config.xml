@@ -15,13 +15,13 @@
 		message. You can also implement your own exception handler factory (i.e. 
 		CustomExceptionHandler extends ExceptionHandlerWrapper && CustomExceptionHandlerFactory 
 		extends ExceptionHandlerFactory) or use FullAjaxExceptionHandlerFactory (redirection 
-		to error page). -->
+		to error page). Is FacesMessageExceptionHandlerFactory works with ViewExpiredException 
+		? -->
 	<factory>
 		<exception-handler-factory>org.omnifaces.exceptionhandler.FacesMessageExceptionHandlerFactory</exception-handler-factory>
 	</factory>
 
 	<application>
-		<!-- TODO : View expired exception handler trick <view-handler>package.ViewExpiredExceptionHandler</view-handler> -->
 		<!-- I18N Messages externalization -->
 		<locale-config>
 			<default-locale>fr</default-locale>
