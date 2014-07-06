@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+	<!-- The ResetInputAjaxActionListener component will reset input fields 
+		which are not executed during ajax submit, but which are rendered/updated 
+		during ajax response. -->
+	<lifecycle>
+		<phase-listener>org.omnifaces.eventlistener.ResetInputAjaxActionListener</phase-listener>
+	</lifecycle>
+
+	<!-- This exception handler will add every exception as a global FATAL faces 
+		message. You can also implement your own exception handler factory (i.e. 
+		CustomExceptionHandler extends ExceptionHandlerWrapper && CustomExceptionHandlerFactory 
+		extends ExceptionHandlerFactory) or use FullAjaxExceptionHandlerFactory (redirection 
+		to error page). -->
+	<factory>
+		<exception-handler-factory>org.omnifaces.exceptionhandler.FacesMessageExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+
+	<application>
+		<!-- TODO : View expired exception handler trick <view-handler>package.ViewExpiredExceptionHandler</view-handler> -->
+		<!-- I18N Messages externalization -->
+		<locale-config>
+			<default-locale>fr</default-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>i18n.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		<!-- Message Bundle is used to override JSF default messages -->
+		<message-bundle>i18n.error-messages.properties</message-bundle>
+	</application>
+
+	<!-- Navigation rules -->
+	<navigation-rule>
+		<!-- Where you're from -->
+		<from-view-id>*</from-view-id>
+		<!-- Where your going -->
+		<navigation-case>
+			<!-- Page identificator -->
+			<from-outcome>index</from-outcome>
+			<!-- Path to the xhtml -->
+			<to-view-id>pages/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<!-- TODO : Explain render-kit <render-kit></render-kit> -->
+</faces-config>

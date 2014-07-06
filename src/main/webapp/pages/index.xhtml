@@ -1,0 +1,61 @@
+<!-- A composition is created from a template, now you can redefine ui:insert template's blocks -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="templates/commonTemplate.xhtml">
+
+	<!-- Define content & use default header and footer -->
+	<ui:define name="content">
+		<h:outputText value="#{msg['jsf.skeleton.content']}" />
+
+		<!-- List web.xml context-param -->
+		<dl>
+			<ui:repeat var="p" value="#{initParam.entrySet().toArray()}">
+				<dt>
+					<h:outputText for="id_#{p.key}" value="#{p.key}" />
+				</dt>
+				<dd>
+					<h:outputText id="id_#{p.key}" value="#{p.value}" />
+				</dd>
+			</ui:repeat>
+		</dl>
+	</ui:define>
+
+</ui:composition>
+
+<!-- 
+Availables shortcut in xhtml files : 
+application -> externalContext.getContext() 
+applicationScope -> 
+externalContext.getApplicationMap() 
+component -> the component most recently pushed to 
+UIComponent.pushComponentToEL() 
+cc -> the component returned from 
+UIComponent.getCurrentCompositeComponent(). 
+cookie -> externalContext.getRequestCookieMap() 
+facesContext -> the FacesContext for this request 
+component -> the top of the stack of UIComponent 
+instances, as pushed via calls to 
+UIComponent.pushComponentToEL(). See Section 3.1.14 
+“Lifecycle Management Methods” 
+flash -> externalContext.getFlash() 
+header -> externalContext.getRequestHeaderMap() 
+headerValues -> 
+externalContext.getRequestHeaderValuesMap() 
+initParam -> externalContext.getInitParameterMap() 
+param -> externalContext.getRequestParameterMap() 
+paramValues -> 
+externalContext.getRequestParameterValuesMap() 
+request -> externalContext.getRequest() 
+requestScope -> externalContext.getRequestMap() 
+resource -> 
+facesContext.getApplication().getResourceHandler() 
+session -> externalContext.getSession() 
+sessionScope -> externalContext.getSessionMap() 
+view -> facesContext.getViewRoot() 
+viewScope -> 
+facesContext.getViewRoot().getViewMap() 
+resource -> 
+facesContext.getApplication().getResourceHandler()
+ -->

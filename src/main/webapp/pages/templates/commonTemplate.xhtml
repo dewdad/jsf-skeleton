@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!-- Omnifaces :
+xmlns:o="http://omnifaces.org/ui"
+xmlns:of="http://omnifaces.org/functions"
+Primefaces :
+xmlns:p="http://primefaces.org/ui" -->
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title><h:outputText value="#{msg['jsf.skeleton.title']}" /></title>
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+	<!-- Include CSS when you're using primefaces, your CSS will be included at the end -->
+	<h:outputStylesheet library="css" name="style.css" />
+
+	<!-- Define header -->
+	<div id="header">
+		<ui:insert name="header">
+			<!-- Define default header (an included page is named Facelet) -->
+			<ui:include src="header.xhtml" />
+		</ui:insert>
+	</div>
+
+	<!-- Define content -->
+	<div id="content">
+		<ui:insert name="content" />
+	</div>
+
+	<!-- Define footer -->
+	<div id="footer">
+		<ui:insert name="footer">
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</div>
+</h:body>
+</html>
