@@ -11,14 +11,12 @@
 		<phase-listener>org.omnifaces.eventlistener.ResetInputAjaxActionListener</phase-listener>
 	</lifecycle>
 
-	<!-- This exception handler will add every exception as a global FATAL faces 
-		message. You can also implement your own exception handler factory (i.e. 
-		CustomExceptionHandler extends ExceptionHandlerWrapper && CustomExceptionHandlerFactory 
-		extends ExceptionHandlerFactory) or use FullAjaxExceptionHandlerFactory (redirection 
-		to error page). Is FacesMessageExceptionHandlerFactory works with ViewExpiredException 
-		? -->
+	<!-- This exception handler will redirect errors to error pages defined 
+		in the web.xml file. You can also implement your own exception handler factory 
+		(i.e. CustomExceptionHandler extends ExceptionHandlerWrapper && CustomExceptionHandlerFactory 
+		extends ExceptionHandlerFactory). -->
 	<factory>
-		<exception-handler-factory>org.omnifaces.exceptionhandler.FacesMessageExceptionHandlerFactory</exception-handler-factory>
+		<exception-handler-factory>org.omnifaces.exceptionhandler.FullAjaxExceptionHandlerFactory</exception-handler-factory>
 	</factory>
 
 	<application>
